@@ -1,3 +1,4 @@
+// Copyright Joseph McCormack
 // Soli Deo gloria
 
 // Tnz6 includes
@@ -695,7 +696,11 @@ int main(int argc, char *argv[]) {
 
   TFilePath fp = ToonzFolder::getModuleFile("mainwindow.ini");
   QSettings settings(toQString(fp), QSettings::IniFormat);
-  w.restoreGeometry(settings.value("MainWindowGeometry").toByteArray());
+  QByteArray savedGeometry = settings.value("MainWindowGeometry").toByteArray();
+  // First run has no saved geometry; restoreGeometry() then leaves the window
+  // at a degenerate default size, so start maximized instead.
+  if (savedGeometry.isEmpty() || !w.restoreGeometry(savedGeometry))
+    w.setWindowState(w.windowState() | Qt::WindowMaximized);
 
   if (isRunScript) {
     // load script

@@ -1,3 +1,4 @@
+// Copyright Joseph McCormack
 
 
 #include "toonz/preferences.h"
@@ -420,7 +421,8 @@ void Preferences::definePreferenceItems() {
   define(oldCameraUnits, "oldCameraUnits", QMetaType::QString, "inch");
   define(linearUnits, "linearUnits", QMetaType::QString, "pixel");
   define(cameraUnits, "cameraUnits", QMetaType::QString, "pixel");
-  define(CurrentRoomChoice, "CurrentRoomChoice", QMetaType::QString, "Default");
+  define(CurrentRoomChoice, "CurrentRoomChoice", QMetaType::QString,
+         "Inkframe");
   define(functionEditorToggle, "functionEditorToggle", QMetaType::Int,
          (int)ToggleBetweenGraphAndSpreadsheet);
   define(moveCurrentFrameByClickCellArea, "moveCurrentFrameByClickCellArea",
