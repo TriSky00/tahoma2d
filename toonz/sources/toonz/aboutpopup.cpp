@@ -1,3 +1,4 @@
+// Copyright Joseph McCormack
 #include "aboutpopup.h"
 #include "tenv.h"
 #include "tsystem.h"
@@ -23,11 +24,11 @@ void AboutClickableLabel::mousePressEvent(QMouseEvent* event) {
 }
 
 AboutPopup::AboutPopup(QWidget* parent)
-    : DVGui::Dialog(parent, true, true, "About Tahoma2D") {
+    : DVGui::Dialog(parent, true, true, "About Inkframe") {
   setFixedWidth(360);
-  setFixedHeight(383);
+  setFixedHeight(423);
 
-  setWindowTitle(tr("About Tahoma2D"));
+  setWindowTitle(tr("About Inkframe"));
   setTopMargin(0);
 
   TFilePath baseLicensePath   = TEnv::getStuffDir() + "doc/LICENSE";
@@ -40,7 +41,11 @@ AboutPopup::AboutPopup(QWidget* parent)
   logo->setPixmap(QPixmap::fromImage(QImage(":Resources/tahoma2d_about.png")));
   mainLayout->addWidget(logo);
 
-  QString name = QString::fromStdString(TEnv::getApplicationFullName());
+  QString name = QString("Inkframe — an Aetherfall development tool\n");
+  name += "Portions Copyright (C) 2026 Joseph McCormack\n";
+  name += "Based on " +
+          QString::fromStdString(TEnv::getApplicationFullName()) +
+          " (Tahoma2D / OpenToonz contributors, DWANGO Co., Ltd.)";
   name += "\nBuilt: " __DATE__;
   mainLayout->addWidget(new QLabel(name));
 

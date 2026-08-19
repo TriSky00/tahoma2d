@@ -381,8 +381,8 @@ void Preferences::definePreferenceItems() {
   define(defaultViewerEnabled, "defaultViewerEnabled", QMetaType::Bool, false);
   define(rasterOptimizedMemory, "rasterOptimizedMemory", QMetaType::Bool,
          false);
-  define(autosaveEnabled, "autosaveEnabled", QMetaType::Bool, false);
-  define(autosavePeriod, "autosavePeriod", QMetaType::Int, 15, 1, 60);
+  define(autosaveEnabled, "autosaveEnabled", QMetaType::Bool, true);
+  define(autosavePeriod, "autosavePeriod", QMetaType::Int, 10, 1, 60);
   define(autosaveSceneEnabled, "autosaveSceneEnabled", QMetaType::Bool, true);
   define(autosaveOtherFilesEnabled, "autosaveOtherFilesEnabled",
          QMetaType::Bool, true);
