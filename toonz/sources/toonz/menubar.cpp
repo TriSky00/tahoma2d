@@ -1,3 +1,4 @@
+// Copyright Joseph McCormack
 
 
 #include "menubar.h"
@@ -508,6 +509,13 @@ void TopBar::loadMenubar() {
 
   // Menu' CELLS
   QMenu *cellsMenu = addMenu(ShortcutTree::tr("Cells"), m_menuBar);
+  QMenu *quickFxMenu = cellsMenu->addMenu(QObject::tr("Add Effect"));
+  addMenuItem(quickFxMenu, MI_QuickFxGlow);
+  addMenuItem(quickFxMenu, MI_QuickFxSoftBlur);
+  addMenuItem(quickFxMenu, MI_QuickFxSpeedLines);
+  addMenuItem(quickFxMenu, MI_QuickFxMotionBlur);
+  addMenuItem(quickFxMenu, MI_QuickFxParticles);
+  cellsMenu->addSeparator();
   addMenuItem(cellsMenu, MI_Reverse);
   addMenuItem(cellsMenu, MI_Swing);
   addMenuItem(cellsMenu, MI_Random);
@@ -692,6 +700,7 @@ void TopBar::loadMenubar() {
   addMenuItem(windowsMenu, MI_OpenBatchServers);
   addMenuItem(windowsMenu, MI_OpenTMessage);
   addMenuItem(windowsMenu, MI_OpenHistoryPanel);
+  addMenuItem(windowsMenu, MI_OpenPoseReference);
   addMenuItem(windowsMenu, MI_AudioRecording);
   addMenuItem(windowsMenu, MI_OpenStopMotionPanel);
   addMenuItem(windowsMenu, MI_OpenMotionPathPanel);

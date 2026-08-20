@@ -48,6 +48,7 @@ set(MOC_HEADERS
     fxparameditorpopup.h
     histogrampopup.h
     historypane.h
+    posereferencepanel.h
     multicolumnsortproxymodel.h
     vectorinspector.h
     imageviewer.h
@@ -352,6 +353,8 @@ set(SOURCES
     mergecmapped.cpp
     comboviewerpane.cpp
     historypane.cpp
+    posereferencepanel.cpp
+    quickfxcommands.cpp
     multicolumnsortproxymodel.cpp
     vectorinspector.cpp
     cleanupsettingspane.cpp

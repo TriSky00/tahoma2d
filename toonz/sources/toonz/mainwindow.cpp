@@ -2262,6 +2262,16 @@ void MainWindow::defineActions() {
   // Menu - Cells
 
   createMenuCellsAction(MI_MergeFrames, QT_TR_NOOP("&Merge"), "", "merge");
+  createMenuCellsAction(MI_QuickFxGlow, QT_TR_NOOP("Add Glow"), "", "");
+  createMenuCellsAction(MI_QuickFxSoftBlur, QT_TR_NOOP("Add Soft Blur"), "",
+                        "");
+  createMenuCellsAction(MI_QuickFxSpeedLines, QT_TR_NOOP("Add Speed Lines"),
+                        "", "");
+  createMenuCellsAction(MI_QuickFxMotionBlur, QT_TR_NOOP("Add Motion Blur"),
+                        "", "");
+  createMenuCellsAction(MI_QuickFxParticles,
+                        QT_TR_NOOP("Add Particles (Rain/Snow/Sparks)"), "",
+                        "");
   createMenuCellsAction(MI_Reverse, QT_TR_NOOP("&Reverse"), "", "reverse");
   createMenuCellsAction(MI_Swing, QT_TR_NOOP("&Swing"), "", "swing");
   createMenuCellsAction(MI_Random, QT_TR_NOOP("&Random"), "", "random");
@@ -2529,6 +2539,8 @@ void MainWindow::defineActions() {
                           "comboviewer");
   createMenuWindowsAction(MI_OpenHistoryPanel, QT_TR_NOOP("&History"), "Ctrl+H",
                           "history");
+  createMenuWindowsAction(MI_OpenPoseReference, QT_TR_NOOP("&Pose Reference"),
+                          "", "");
   createMenuWindowsAction(MI_AudioRecording, QT_TR_NOOP("Record Audio"),
                           "Alt+A", "recordaudio");
   createMenuWindowsAction(MI_ResetRoomLayout,
