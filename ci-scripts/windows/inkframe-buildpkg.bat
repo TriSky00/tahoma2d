@@ -14,6 +14,9 @@ mkdir Inkframe
 
 echo ">>> Copy application files"
 copy /y RelWithDebInfo\*.* Inkframe
+REM stale pre-rename binaries must never ship
+IF EXIST Inkframe\Tahoma2D.exe del /Q Inkframe\Tahoma2D.exe
+IF EXIST Inkframe\Tahoma2D.pdb del /Q Inkframe\Tahoma2D.pdb
 
 echo ">>> Copy ThirdParty DLLs"
 copy /Y ..\..\thirdparty\freeglut\bin\x64\freeglut.dll Inkframe
