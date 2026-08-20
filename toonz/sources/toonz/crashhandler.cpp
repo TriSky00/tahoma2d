@@ -483,11 +483,11 @@ CrashHandler::CrashHandler(QWidget *parent, TFilePath crashFile, QString crashRe
   setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
 
   QStringList sl;
-  sl.append(tr("<b>Tahoma2D crashed unexpectedly.</b>"));
+  sl.append(tr("<b>Inkframe crashed unexpectedly.</b>"));
   sl.append("");
   sl.append(tr("A crash report has been generated."));
   sl.append(
-      tr("To report, click 'Open Issue Webpage' to access Tahoma2D's Issues "
+      tr("To report, click 'Open Issue Webpage' to access Inkframe's Issues "
          "page on GitHub."));
   sl.append(tr("Click on the 'New issue' button and fill out the form."));
   sl.append("");
@@ -525,7 +525,7 @@ CrashHandler::CrashHandler(QWidget *parent, TFilePath crashFile, QString crashRe
   ret = ret && connect(closeBtn, SIGNAL(clicked()), this, SLOT(accept()));
   if (!ret) throw TException();
 
-  setWindowTitle(tr("Tahoma2D crashed!"));
+  setWindowTitle(tr("Inkframe crashed!"));
   setLayout(mainLayout);
 }
 
@@ -555,7 +555,7 @@ void CrashHandler::copyClipboard() {
 //-----------------------------------------------------------------------------
 
 void CrashHandler::openWebpage() {
-  QDesktopServices::openUrl(QUrl("https://github.com/tahoma2d/tahoma2d/issues"));
+  QDesktopServices::openUrl(QUrl("https://github.com/TriSky00/tahoma2d/issues"));
 }  
 
 //-----------------------------------------------------------------------------

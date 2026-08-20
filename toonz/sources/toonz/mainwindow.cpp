@@ -1932,10 +1932,10 @@ void MainWindow::defineActions() {
       MI_SoundTrack, QT_TR_NOOP("&Export Soundtrack"), "", "export_soundtrack",
       tr("Exports the soundtrack to the current scene as a wav file."));
   createMenuFileAction(MI_Preferences, QT_TR_NOOP("&Preferences..."), "Ctrl+U",
-                       "gear", tr("Change Tahoma2D's settings."));
+                       "gear", tr("Change Inkframe's settings."));
   createMenuFileAction(MI_ShortcutPopup, QT_TR_NOOP("&Configure Shortcuts..."),
                        "", "shortcuts",
-                       tr("Change the shortcuts of Tahoma2D."));
+                       tr("Change the shortcuts of Inkframe."));
   createMenuFileAction(MI_PrintXsheet, QT_TR_NOOP("&Print Xsheet"), "",
                        "printer", tr("Print the scene's exposure sheet."));
 
@@ -2582,7 +2582,7 @@ void MainWindow::defineActions() {
                           QT_TR_NOOP("Vector Inspector"), "",
                           "vectorinspector");
   createMenuHelpAction(MI_OpenCrashReportFolder, QT_TR_NOOP("&Open Reports Folder..."), "", "");
-  createMenuHelpAction(MI_About, QT_TR_NOOP("&About Tahoma2D..."), "", "info");
+  createMenuHelpAction(MI_About, QT_TR_NOOP("&About Inkframe..."), "", "info");
   //  createMenuHelpAction(MI_SupportTahoma2D, QT_TR_NOOP("&Support
   //  Tahoma2D..."), "",
   //                       "web");
@@ -3688,7 +3688,7 @@ void MainWindow::makeTransparencyDialog() {
 
   m_transparencyTogglerWindow->setFixedHeight(100);
   m_transparencyTogglerWindow->setFixedWidth(250);
-  m_transparencyTogglerWindow->setWindowTitle(tr("Tahoma2D Transparency"));
+  m_transparencyTogglerWindow->setWindowTitle(tr("Inkframe Transparency"));
   QPushButton *toggleButton = new QPushButton(this);
   toggleButton->setText(tr("Close to turn off Transparency."));
   connect(toggleButton, &QPushButton::clicked,

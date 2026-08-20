@@ -665,7 +665,7 @@ int main(int argc, char *argv[]) {
 
   loadShaderInterfaces(ToonzFolder::getLibraryFolder() + TFilePath("shaders"));
 
-  splash.showMessage(offsetStr + QObject::tr("Initializing Tahoma2D..."),
+  splash.showMessage(offsetStr + QObject::tr("Initializing Inkframe..."),
                      Qt::AlignRight | Qt::AlignBottom, Qt::black);
   a.processEvents();
 
@@ -791,7 +791,7 @@ int main(int argc, char *argv[]) {
 
   w.setWindowTitle(QString::fromStdString(TEnv::getApplicationFullName()));
   if (TEnv::getIsPortable()) {
-    splash.showMessage(offsetStr + QObject::tr("Starting Tahoma2D..."),
+    splash.showMessage(offsetStr + QObject::tr("Starting Inkframe..."),
                        Qt::AlignRight | Qt::AlignBottom, Qt::black);
   } else {
     splash.showMessage(offsetStr + QObject::tr("Starting main window..."),
