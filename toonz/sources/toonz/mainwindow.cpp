@@ -561,8 +561,8 @@ void MainWindow::changeWindowTitle() {
   /*--- レイアウトファイル名を頭に表示させる ---*/
   if (!m_layoutName.isEmpty()) sceneName.prepend(m_layoutName + " : ");
 
-  QString name = sceneName + " [" + projectName + "] : Inkframe (" +
-                 QString::fromStdString(TEnv::getApplicationFullName()) + ")";
+  QString name = sceneName + " [" + projectName + "] : " +
+                 QString::fromStdString(TEnv::getApplicationFullName());
 
   setWindowTitle(name);
 }

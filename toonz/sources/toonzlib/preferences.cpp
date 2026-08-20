@@ -695,7 +695,7 @@ void Preferences::definePreferenceItems() {
   define(automaticSVNFolderRefreshEnabled, "automaticSVNFolderRefreshEnabled",
          QMetaType::Bool, true);
   define(latestVersionCheckEnabled, "latestVersionCheckEnabled",
-         QMetaType::Bool, true);
+         QMetaType::Bool, false);
 
   // Touch / Tablet Settings
   // TounchGestureControl // Touch Gesture is a checkable command and not in

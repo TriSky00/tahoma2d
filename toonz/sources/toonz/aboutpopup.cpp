@@ -41,11 +41,10 @@ AboutPopup::AboutPopup(QWidget* parent)
   logo->setPixmap(QPixmap::fromImage(QImage(":Resources/tahoma2d_about.png")));
   mainLayout->addWidget(logo);
 
-  QString name = QString("Inkframe — an Aetherfall development tool\n");
-  name += "Portions Copyright (C) 2026 Joseph McCormack\n";
-  name += "Based on " +
-          QString::fromStdString(TEnv::getApplicationFullName()) +
-          " (Tahoma2D / OpenToonz contributors, DWANGO Co., Ltd.)";
+  QString name = QString::fromStdString(TEnv::getApplicationFullName()) +
+                 " — an Aetherfall development tool\n";
+  name += "Copyright (C) 2026 Joseph McCormack\n";
+  name += "Built on open-source software — see the licenses below";
   name += "\nBuilt: " __DATE__;
   mainLayout->addWidget(new QLabel(name));
 
@@ -55,7 +54,7 @@ AboutPopup::AboutPopup(QWidget* parent)
   mainLayout->addWidget(blankLabel);
 
   AboutClickableLabel* licenseLink = new AboutClickableLabel(this);
-  licenseLink->setText(tr("Tahoma2D License"));
+  licenseLink->setText(tr("License"));
 
   connect(licenseLink, &AboutClickableLabel::clicked, [=]() {
     if (TSystem::isUNC(tahomaLicensePath))

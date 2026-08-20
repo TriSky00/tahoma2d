@@ -424,6 +424,7 @@ qt5_wrap_cpp(SOURCES ${MOC_HEADERS})
 
 if(BUILD_ENV_MSVC)
     add_executable(Tahoma2D WIN32 ${HEADERS} ${SOURCES} ${OBJCSOURCES} ${RESOURCES} ${RC_FILE})
+    set_target_properties(Tahoma2D PROPERTIES OUTPUT_NAME "Inkframe")
 else()
     set(MACOSX_BUNDLE_ICON_FILE "Tahoma2D.icns")
     set_source_files_properties(Tahoma2D.icns PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")

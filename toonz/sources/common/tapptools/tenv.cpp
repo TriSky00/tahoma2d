@@ -1,3 +1,4 @@
+// Copyright Joseph McCormack
 #include "tenv.h"
 #include "tsystem.h"
 #include "tconvert.h"
@@ -53,7 +54,8 @@ class EnvGlobals {  // singleton
   TFilePath m_envFile;
   TFilePath *m_stuffDir;
   TFilePath *m_dllRelativeDir;
-  bool m_isPortable = false;
+  bool m_isPortable                  = false;
+  std::string m_portableStuffDirName = "tahomastuff";
 
   // path values specified with command line arguments
   std::map<std::string, std::string> m_argPathValues;
@@ -148,7 +150,7 @@ public:
   TFilePath getStuffDir() {
     if (m_stuffDir) return *m_stuffDir;
     if (m_isPortable)
-      return TFilePath(getWorkingDirectory()) + "tahomastuff";
+      return TFilePath(getWorkingDirectory()) + m_portableStuffDirName;
 
     return TFilePath(getSystemVarValue(m_rootVarName));
   }
@@ -226,10 +228,18 @@ public:
 
   void setWorkingDirectory() {
     m_workingDirectory = QDir::currentPath();
-    // check if portable
-    TFilePath portableCheck = TFilePath(m_workingDirectory) + "tahomastuff";
+    // check if portable: Inkframe stuff dir first, legacy Tahoma2D name kept
+    // as a fallback so upstream-style packages still resolve
+    TFilePath portableCheck = TFilePath(m_workingDirectory) + "inkframestuff";
     TFileStatus portableStatus(portableCheck);
     m_isPortable = portableStatus.doesExist();
+    if (m_isPortable) {
+      m_portableStuffDirName = "inkframestuff";
+    } else {
+      portableCheck  = TFilePath(m_workingDirectory) + "tahomastuff";
+      portableStatus = TFileStatus(portableCheck);
+      m_isPortable   = portableStatus.doesExist();
+    }
 
 #ifdef MACOSX
     // macOS 10.12 (Sierra) translocates applications before running them

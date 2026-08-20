@@ -101,8 +101,8 @@ using namespace DVGui;
 
 TEnv::IntVar EnvSoftwareCurrentFontSize("SoftwareCurrentFontSize", 12);
 
-const char *rootVarName     = "TAHOMA2DROOT";
-const char *systemVarPrefix = "TAHOMA2D";
+const char *rootVarName     = "INKFRAMEROOT";
+const char *systemVarPrefix = "INKFRAME";
 
 #ifdef MACOSX
 #include "tthread.h"
@@ -135,7 +135,7 @@ static void toonzRunOutOfContMemHandler(unsigned long size) {
 #ifdef _WIN32
   static bool firstTime = true;
   if (firstTime) {
-    MessageBox(NULL, (LPCWSTR)L"Run out of contiguous physical memory: please save all and restart Tahoma2D!",
+    MessageBox(NULL, (LPCWSTR)L"Run out of contiguous physical memory: please save all and restart Inkframe!",
 				   (LPCWSTR)L"Warning", MB_OK | MB_SYSTEMMODAL);
     firstTime = false;
   }
@@ -169,7 +169,7 @@ static void initToonzEnv(QHash<QString, QString> &argPathValues) {
     ++i;
   }
 
-  QCoreApplication::setOrganizationName("Tahoma2D");
+  QCoreApplication::setOrganizationName("Inkframe");
   QCoreApplication::setOrganizationDomain("");
   QCoreApplication::setApplicationName(
       QString::fromStdString(TEnv::getApplicationName()));
@@ -730,7 +730,9 @@ int main(int argc, char *argv[]) {
                       .replace("\"", "\\\"");
       QString cmd = QString("run(\"%1\")").arg(s);
       engine.evaluate(cmd);
-      engine.wait();
+      // Script bindings marshal work onto the main thread; a bare wait()
+      // deadlocks them, so pump the event loop while the script runs.
+      while (!engine.wait(50)) a.processEvents();
       if (!oldProjectPath.isEmpty()) pm->setCurrentProjectPath(oldProjectPath);
       return 1;
     } else {
